@@ -1,0 +1,15 @@
+rating App:
+
+- add ability to create ratin component
+- add to pass props:
+  * color
+  * activeColor
+  * maxValue
+  * minValue
+  * onChangeEvent
+  * class
+  * className
+  * onClickEvent
+  * allowUnselect
+- add ability to pass children - display children multiple times
+- pass props to childrens
