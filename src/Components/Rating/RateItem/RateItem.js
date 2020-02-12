@@ -3,14 +3,14 @@ import React from "react";
 import classes from "./RateItem.module.scss";
 
 const rateItem = props => {
-  const itemClasses = [props.itemClass, classes.rating__item];
-  const containerClasses = [classes.rating__container];
+  const itemClasses = [props.itemClass, classes.item];
+  const containerClasses = [classes.container];
   let containerStyles = {};
   let itemStyles = {};
 
   if (props.active) {
-    containerClasses.push(classes["rating__container--active"]);
-    itemClasses.push(classes["rating__item--active"], props.itemActiveClass);
+    containerClasses.push(classes.active);
+    itemClasses.push(classes.active, props.itemActiveClass);
     if (props.itemActiveStyles) {
       itemStyles = props.itemActiveStyles;
     }
@@ -24,6 +24,11 @@ const rateItem = props => {
     if (props.containerStyles) {
       containerStyles = props.containerStyles;
     }
+  }
+
+  if (props.theme) {
+    containerClasses.push(classes[props.theme]);
+    itemClasses.push(classes[props.theme]);
   }
 
   return (

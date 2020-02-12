@@ -10,7 +10,6 @@ function App() {
     width: "20px",
     height: "20px"
   };
-
   let containerActiveStyles = {
     width: "20px",
     height: "20px"
@@ -31,7 +30,7 @@ function App() {
   return (
     <div className="App">
       <p>easiest call</p>
-      <Rating />
+      <Rating theme="gold" />
       <p>children passed</p>
       <Rating>*</Rating>
       <p>children and styles passed</p>

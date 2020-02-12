@@ -1,23 +1,35 @@
-.rating {
-  &__container {
-    width: 15px;
-    height: 15px;
-    padding: 3px;
-    cursor: pointer;
-  }
+@mixin addRateItemTheme($color, $activeColor, $name) {
+  &.#{$name} {
+    background-color: $color;
+    border: 1px solid $activeColor;
 
-  &__item {
-    display: block;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-
-    border-radius: 5%;
-    background: #d2fcdb;
-    border: 1px solid #6fb07e;
-
-    &--active {
-      background-color: #6fb07e;
+    &.active {
+      background-color: $activeColor;
     }
   }
+}
+
+.container {
+  width: 15px;
+  height: 15px;
+  padding: 3px;
+  cursor: pointer;
+}
+
+.item {
+  display: block;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+
+  border-radius: 5%;
+  background: #d2fcdb;
+  border: 1px solid #6fb07e;
+
+  &.active {
+    background-color: #6fb07e;
+  }
+
+  @include addRateItemTheme(#6ea1ff, #2857ad, "blue");
+  @include addRateItemTheme(#fac552, #ad7e17, "gold");
 }
