@@ -1,65 +1,64 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import RateItem from './RateItem/RateItem';
+import RateItem from "./RateItem/RateItem";
 
-import classes from './Rating.module.scss';
+import classes from "./Rating.module.scss";
 
-const Rating = (props) => {
-  const [ hoveredValue, setHoveredValue ] = useState(-1);
-  const [ chosenValue, setChosenValue ] = useState(-1);
+const Rating = props => {
+  const [hoveredValue, setHoveredValue] = useState(-1);
+  const [chosenValue, setChosenValue] = useState(props.value);
   const items = [];
-
-  const handleHover = ( value = -1 ) => {
+  const {
+    minValue = 0,
+    maxValue = 5,
+    allowUnselect = true,
+    itemClass = "rating__item",
+    itemActiveClass = "rating__item--active", // nie możesz przekazać booleana? w sensie że jak ? przekazujesz czy jest aktywny i wtedy doajesz klase? tak robię. tylko to można przekazac z app.js
+    itemStyles = {},
+    itemActiveStyles = {},
+    containerStyles = {},
+    containerActiveStyles = {}
+  } = props;
+  const handleHover = (value = -1) => {
     setHoveredValue(value);
-  }
+  };
 
-  const handleItemClick = ( value = -1 ) => {
-    if( chosenValue === value ) value = -1;
-    setChosenValue(value);
-  }
+  const handleItemClick = (value = -1) => {
+    if (chosenValue === value && allowUnselect) value = -1;
 
-  const rates = [
-    {
-      value: 0,
-      disabled: true
-    },
-    {
-      value: 1,
-      disabled: true
-    },
-    {
-      value: 2,
-      disabled: true
-    },
-    {
-      value: 3,
-      disabled: true
-    },
-    {
-      value: 4,
-      disabled: true
-    },
-  ];
+    if (chosenValue !== value) {
+      setChosenValue(value);
 
-  rates.map( (item)=>{
-    const active = (hoveredValue >= item.value || 
-      (hoveredValue === -1 && chosenValue >= item.value ) )
+      if (typeof props.changed === "function") {
+        props.changed(value);
+      }
+    }
+  };
 
-    items.push(<RateItem
-      key={item.value}
-      value={item.value}
-      active={active}
-      clicked={handleItemClick}
-      mouseEvents={handleHover}>
+  for (let i = parseInt(minValue); parseInt(maxValue) >= i; i++) {
+    const active =
+      hoveredValue >= i || (hoveredValue === -1 && chosenValue >= i);
+
+    items.push(
+      <RateItem
+        key={i}
+        value={i}
+        active={active}
+        clicked={handleItemClick}
+        mouseEvents={handleHover}
+        itemClass={itemClass}
+        itemActiveClass={itemActiveClass}
+        itemStyles={itemStyles}
+        itemActiveStyles={itemActiveStyles}
+        containerStyles={containerStyles}
+        containerActiveStyles={containerActiveStyles}
+      >
         {props.children}
-      </RateItem>);
-  });
+      </RateItem>
+    );
+  }
 
-
-
-  return <div className={classes.rating}>
-    {items}
-  </div>
-}
+  return <div className={classes.rating}>{items}</div>;
+};
 
 export default Rating;

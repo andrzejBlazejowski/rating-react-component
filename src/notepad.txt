@@ -1,17 +1,18 @@
 rating App:
 
-- add ability to create rating component
 - add ability to pass props:
+  * itemWidth
+  * itemHeight
   * color
   * activeColor
+  * class
+  * value
+  * activeClass
+  * allowUnselect
   * maxValue
   * minValue
   * onChangeEvent
-  * class
-  * className
-  * onClickEvent
-  * allowUnselect
-  * itemWidth
-  * itemHeight
-- add ability to pass children - display children multiple times
+  
+  * read only
 - pass props to childrens
+- add propsTypes
