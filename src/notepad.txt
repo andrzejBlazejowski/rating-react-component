@@ -1,7 +1,7 @@
 rating App:
 
-- add ability to create ratin component
-- add to pass props:
+- add ability to create rating component
+- add ability to pass props:
   * color
   * activeColor
   * maxValue
@@ -11,5 +11,7 @@ rating App:
   * className
   * onClickEvent
   * allowUnselect
+  * itemWidth
+  * itemHeight
 - add ability to pass children - display children multiple times
 - pass props to childrens
