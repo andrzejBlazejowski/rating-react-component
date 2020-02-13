@@ -1,18 +1,4 @@
 rating App:
-
-- add ability to pass props:
-  * itemWidth
-  * itemHeight
-  * color
-  * activeColor
-  * class
-  * value
-  * activeClass
-  * allowUnselect
-  * maxValue
-  * minValue
-  * onChangeEvent
-  
   * read only
 - pass props to childrens
 - add propsTypes

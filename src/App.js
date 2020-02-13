@@ -31,6 +31,10 @@ function App() {
     <div className="App">
       <p>easiest call</p>
       <Rating theme="gold" />
+      <Rating theme="aqua" />
+      <Rating theme="red" />
+      <Rating theme="green" />
+      <Rating theme="yellow" />
       <p>children passed</p>
       <Rating>*</Rating>
       <p>children and styles passed</p>
@@ -46,13 +50,14 @@ function App() {
       <Rating allowUnselect={false}></Rating>
       <p>minValue = 1, maxValue = 10</p>
       <Rating minValue="1" maxValue="10"></Rating>
-      <p>value set to 3, styles and child passed</p>
+      <p>value set to 3, styles and child passed, readonly</p>
       <Rating
         containerStyles={containerStyles}
         containerActiveStyles={containerActiveStyles}
         itemStyles={itemStyles}
         itemActiveStyles={itemActiveStyles}
         value="3"
+        readOnly
       >
         *
       </Rating>

@@ -15,6 +15,7 @@ const Rating = props => {
     itemClass = "rating__item",
     itemActiveClass = "rating__item--active", // nie możesz przekazać booleana? w sensie że jak ? przekazujesz czy jest aktywny i wtedy doajesz klase? tak robię. tylko to można przekazac z app.js
     theme = "",
+    readOnly = false,
     itemStyles = {},
     itemActiveStyles = {},
     containerStyles = {},
@@ -54,6 +55,7 @@ const Rating = props => {
         containerStyles={containerStyles}
         containerActiveStyles={containerActiveStyles}
         theme={theme}
+        readOnly={readOnly}
       >
         {props.children}
       </RateItem>

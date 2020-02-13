@@ -35,13 +35,13 @@ const rateItem = props => {
     <div
       style={containerStyles}
       onClick={() => {
-        props.clicked(props.value);
+        if (!props.readOnly) props.clicked(props.value);
       }}
       onMouseEnter={() => {
-        props.mouseEvents(props.value);
+        if (!props.readOnly) props.mouseEvents(props.value);
       }}
       onMouseLeave={() => {
-        props.mouseEvents();
+        if (!props.readOnly) props.mouseEvents();
       }}
       className={containerClasses.join(" ")}
     >
