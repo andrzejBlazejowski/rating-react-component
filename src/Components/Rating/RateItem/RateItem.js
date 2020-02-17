@@ -5,8 +5,17 @@ import classes from "./RateItem.module.scss";
 const rateItem = props => {
   const itemClasses = [props.itemClass, classes.item];
   const containerClasses = [classes.container];
+  let child = null;
   let containerStyles = {};
   let itemStyles = {};
+
+  if (props.children instanceof React.Component) {
+    child = React.cloneElement(props.children[0], props);
+  } else if (typeof props.children === "string") {
+    child = props.children;
+  } else if (React.isValidElement(props.children)) {
+    child = React.cloneElement(props.children, props);
+  }
 
   if (props.active) {
     containerClasses.push(classes.active);
@@ -46,7 +55,7 @@ const rateItem = props => {
       className={containerClasses.join(" ")}
     >
       <div style={itemStyles} className={itemClasses.join(" ")}>
-        {props.children}
+        {child}
       </div>
     </div>
   );

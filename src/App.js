@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { AiFillStar } from "react-icons/ai";
+import { GiLoveMystery } from "react-icons/gi";
 
 import Rating from "./Components/Rating/Rating";
 
@@ -23,21 +25,36 @@ function App() {
     background: "#B34E32"
   };
 
-  const ratChanged = value => {
+  const rateChanged = value => {
     setRate(value);
   };
 
   return (
     <div className="App">
-      <p>easiest call</p>
-      <Rating theme="gold" />
-      <Rating theme="aqua" />
-      <Rating theme="red" />
+      <p>theme: gold, children: div - HTML Element</p>
+      <Rating theme="gold">
+        <div>div</div>
+      </Rating>
+      <p>theme: blueText, children: AiFillStar - react-icons component</p>
+      <Rating theme="blueText">
+        <AiFillStar />
+      </Rating>
+      <p>theme: redText, children: GiLoveMystery - react-icons component</p>
+      <Rating theme="redText">
+        <GiLoveMystery />
+      </Rating>
+      <p>theme: green</p>
       <Rating theme="green" />
-      <Rating theme="yellow" />
-      <p>children passed</p>
-      <Rating>*</Rating>
-      <p>children and styles passed</p>
+      <p>theme: goldText, children: AiFillStar - react-icons component</p>
+      <Rating theme="goldText">
+        <AiFillStar />
+      </Rating>
+      <p>theme: yellow, children: * - plain text</p>
+      <Rating theme="yellow">*</Rating>
+      <p>
+        containerStyles, containerActiveStyles, itemStyles, itemActiveStyles,
+        children * - plain text
+      </p>
       <Rating
         containerStyles={containerStyles}
         containerActiveStyles={containerActiveStyles}
@@ -50,7 +67,10 @@ function App() {
       <Rating allowUnselect={false}></Rating>
       <p>minValue = 1, maxValue = 10</p>
       <Rating minValue="1" maxValue="10"></Rating>
-      <p>value set to 3, styles and child passed, readonly</p>
+      <p>
+        containerStyles, containerActiveStyles, itemStyles, itemActiveStyles,
+        value set to 3, children * - plain text, readonly
+      </p>
       <Rating
         containerStyles={containerStyles}
         containerActiveStyles={containerActiveStyles}
@@ -61,7 +81,10 @@ function App() {
       >
         *
       </Rating>
-      <p>value set to 3, styles and child passed</p>
+      <p>
+        containerStyles, containerActiveStyles, itemStyles, itemActiveStyles,
+        value set to 3, children * - plain text
+      </p>
       <Rating
         containerStyles={containerStyles}
         containerActiveStyles={containerActiveStyles}
@@ -72,8 +95,9 @@ function App() {
         *
       </Rating>
       <p>
-        set set to {rate}, added onClick callback, allow unselect false, styles
-        and child passed
+        containerStyles, containerActiveStyles, itemStyles, itemActiveStyles,
+        value set to 3 - state, children * - plain text, allowUnselect - false,
+        changed - update state
       </p>
       <Rating
         containerStyles={containerStyles}
@@ -82,18 +106,18 @@ function App() {
         itemActiveStyles={itemActiveStyles}
         value={rate}
         allowUnselect={false}
-        changed={ratChanged}
+        changed={rateChanged}
       >
         *
       </Rating>
       <p>
-        Classes changed !, set set to {rate}, added onClick callback, allow
-        unselect false, styles and child passed
+        itemClass, itemActiveClass,value set to 3 - state, children * - plain
+        text, allowUnselect - false, changed - update state
       </p>
       <Rating
         value={rate}
         allowUnselect={false}
-        changed={ratChanged}
+        changed={rateChanged}
         itemClass="customRatingItem"
         itemActiveClass="customRatingItem--active"
       >

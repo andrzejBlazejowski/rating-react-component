@@ -9,11 +9,20 @@
   }
 }
 
+@mixin addRateItemTextTheme($color, $activeColor, $name) {
+  &.#{$name} {
+    color: $color;
+
+    &.active {
+      color: $activeColor;
+    }
+  }
+}
+
 .container {
-  width: 15px;
-  height: 15px;
-  padding: 3px;
+  flex-basis: 10vw;
   cursor: pointer;
+  align-self: stretch;
 }
 
 .item {
@@ -23,12 +32,6 @@
   box-sizing: border-box;
 
   border-radius: 5%;
-  background: #d2fcdb;
-  border: 1px solid #6fb07e;
-
-  &.active {
-    background-color: #6fb07e;
-  }
 
   @include addRateItemTheme(#6ea1ff, #2857ad, "blue");
   @include addRateItemTheme(#fac552, #ad7e17, "gold");
@@ -36,4 +39,10 @@
   @include addRateItemTheme(#cca9a3, #d5523e, "red");
   @include addRateItemTheme(#c9fbd1, #63c773, "green");
   @include addRateItemTheme(#fbf1a8, #c7a32f, "yellow");
+  @include addRateItemTextTheme(#6ea1ff, #2857ad, "blueText");
+  @include addRateItemTextTheme(#fac552, #ad7e17, "goldText");
+  @include addRateItemTextTheme(#e0fffa, #4a8077, "aquaText");
+  @include addRateItemTextTheme(#cca9a3, #d5523e, "redText");
+  @include addRateItemTextTheme(#c9fbd1, #63c773, "greenText");
+  @include addRateItemTextTheme(#fbf1a8, #c7a32f, "yellowText");
 }

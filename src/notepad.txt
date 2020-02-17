@@ -1,4 +1,6 @@
 rating App:
-  * read only
-- pass props to childrens
+- add documentation (usage and list all props)
 - add propsTypes
+
+
+formatter-north-america-latest 
