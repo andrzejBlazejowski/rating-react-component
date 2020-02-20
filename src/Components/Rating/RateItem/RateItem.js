@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import classes from "./RateItem.module.scss";
 
@@ -59,6 +60,27 @@ const rateItem = props => {
       </div>
     </div>
   );
+};
+
+rateItem.propTypes = {
+  key: PropTypes.number.isRequired(),
+  value: PropTypes.number.isRequired(),
+  active: PropTypes.bool.isRequired(),
+  clicked: PropTypes.func.isRequired(),
+  mouseEvents: PropTypes.func.isRequired(),
+  itemClass: PropTypes.string,
+  itemActiveClass: PropTypes.string,
+  itemStyles: PropTypes.object,
+  itemActiveStyles: PropTypes.object,
+  containerStyles: PropTypes.object,
+  containerActiveStyles: PropTypes.object,
+  theme: PropTypes.string,
+  readOnly: PropTypes.bool,
+  child: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.instanceOf(React.Component),
+    PropTypes.string
+  ])
 };
 
 export default rateItem;

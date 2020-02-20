@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 import RateItem from "./RateItem/RateItem";
 
@@ -13,7 +14,7 @@ const Rating = props => {
     maxValue = 5,
     allowUnselect = true,
     itemClass = "rating__item",
-    itemActiveClass = "rating__item--active", // nie możesz przekazać booleana? w sensie że jak ? przekazujesz czy jest aktywny i wtedy doajesz klase? tak robię. tylko to można przekazac z app.js
+    itemActiveClass = "rating__item--active",
     theme = "gold",
     readOnly = false,
     itemStyles = {},
@@ -63,6 +64,26 @@ const Rating = props => {
   }
 
   return <div className={classes.rating}>{items}</div>;
+};
+
+Rating.propTypes = {
+  value: PropTypes.number,
+  minValue: PropTypes.number,
+  maxValue: PropTypes.number,
+  allowUnselect: PropTypes.bool,
+  itemClass: PropTypes.string,
+  itemActiveClass: PropTypes.string,
+  theme: PropTypes.string,
+  readOnly: PropTypes.bool,
+  itemStyles: PropTypes.object,
+  itemActiveStyles: PropTypes.object,
+  containerStyles: PropTypes.object,
+  containerActiveStyles: PropTypes.object,
+  child: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.instanceOf(React.Component),
+    PropTypes.string
+  ])
 };
 
 export default Rating;

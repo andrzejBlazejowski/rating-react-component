@@ -1,6 +1,11 @@
 rating App:
 - add documentation (usage and list all props)
 - add propsTypes
+- create npm package
+- allow storing half of values
+- allow selecting half values
+- allow to pass selected and disselected children
+- allow to pass selected and disselected classes
 
 
 formatter-north-america-latest 
