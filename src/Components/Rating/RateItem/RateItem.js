@@ -63,11 +63,11 @@ const rateItem = props => {
 };
 
 rateItem.propTypes = {
-  key: PropTypes.number.isRequired(),
-  value: PropTypes.number.isRequired(),
-  active: PropTypes.bool.isRequired(),
-  clicked: PropTypes.func.isRequired(),
-  mouseEvents: PropTypes.func.isRequired(),
+  key: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
+  active: PropTypes.bool.isRequired,
+  clicked: PropTypes.func.isRequired,
+  mouseEvents: PropTypes.func.isRequired,
   itemClass: PropTypes.string,
   itemActiveClass: PropTypes.string,
   itemStyles: PropTypes.object,
@@ -76,7 +76,7 @@ rateItem.propTypes = {
   containerActiveStyles: PropTypes.object,
   theme: PropTypes.string,
   readOnly: PropTypes.bool,
-  child: PropTypes.oneOfType([
+  children: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.instanceOf(React.Component),
     PropTypes.string

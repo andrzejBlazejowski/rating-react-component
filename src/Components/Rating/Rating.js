@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
 import RateItem from "./RateItem/RateItem";
 
@@ -79,7 +79,7 @@ Rating.propTypes = {
   itemActiveStyles: PropTypes.object,
   containerStyles: PropTypes.object,
   containerActiveStyles: PropTypes.object,
-  child: PropTypes.oneOfType([
+  children: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.instanceOf(React.Component),
     PropTypes.string
